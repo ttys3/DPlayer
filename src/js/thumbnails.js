@@ -3,6 +3,7 @@ class Thumbnails {
         this.container = options.container;
         this.barWidth = options.barWidth;
         this.container.style.backgroundImage = `url('${options.url}')`;
+        this.apiURL = options.url;
         this.events = options.events;
     }
 
@@ -18,8 +19,10 @@ class Thumbnails {
         this.events && this.events.trigger('thumbnails_show');
     }
 
-    move (position) {
-        this.container.style.backgroundPosition = `-${(Math.ceil(position / this.barWidth * 100) - 1) * 160}px 0`;
+    move (time, position) {
+        const timeInt = Math.ceil(parseInt(time) / 30) * 30;
+        // console.log('time: %d, time new: %d, pos: %d', time, timeInt, position);
+        this.container.style.backgroundImage = `url('${this.apiURL}&t=${timeInt}&w=160')`;
         this.container.style.left = `${Math.min(Math.max(position - this.container.offsetWidth / 2, -10), this.barWidth - 150)}px`;
     }
 
