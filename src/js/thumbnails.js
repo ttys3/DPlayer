@@ -20,7 +20,7 @@ class Thumbnails {
     }
 
     move (time, position) {
-        const timeInt = Math.ceil(parseInt(time) / 30) * 30;
+        const timeInt = Math.floor(parseInt(time) / 30) * 30;
         // console.log('time: %d, time new: %d, pos: %d', time, timeInt, position);
         this.container.style.backgroundImage = `url('${this.apiURL}&t=${timeInt}&w=160')`;
         this.container.style.left = `${Math.min(Math.max(position - this.container.offsetWidth / 2, -10), this.barWidth - 150)}px`;
