@@ -263,7 +263,7 @@ class DPlayer {
      * Toggle between play and pause
      */
     toggle () {
-        if (this.video.paused) {
+        if (this.paused) {
             this.play();
         }
         else {
