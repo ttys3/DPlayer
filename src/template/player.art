@@ -112,10 +112,10 @@
         {{ /if }}
 
         <div class="dplayer-bitmap-subtitle">
-            <button class="dplayer-icon dplayer-bitmap-subtitle-icon">Hide Sub</button>
+            <button class="dplayer-icon dplayer-bitmap-subtitle-icon">No Sub</button>
             <div class="dplayer-bitmap-subtitle-mask">
                 <div class="dplayer-bitmap-subtitle-list">
-                    <div class="dplayer-bitmap-subtitle-item" data-index="-1">Hide Sub</div>
+                    <div class="dplayer-bitmap-subtitle-item" data-index="-1">No Sub</div>
                 </div>
             </div>
         </div>

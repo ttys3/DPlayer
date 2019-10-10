@@ -540,7 +540,7 @@ class DPlayer {
         this.video = videoEle;
         this.initVideo(this.video, this.quality.type || this.options.video.type);
         this.seek(this.prevVideo.currentTime);
-        this.notice(`${this.tran('Switching to')} ${this.quality.name} ${this.tran('quality')}`, -1);
+        this.notice(`${this.tran('Switching to')} ${this.quality.name} ${this.tran('quality')} ......`, -1);
         this.events.trigger('quality_start', this.quality);
 
         this.on('canplay', () => {
@@ -586,12 +586,9 @@ class DPlayer {
         // console.log('index: %d, this.bitmapSubtitleIndex: %d', index, this.bitmapSubtitleIndex);
 
         this.switchingSubtitle = true;
-        if (this.bitmapSubtitleIndex >= 0) {
-            this.bitmapSubtitleCur = this.bitmapSubtitles[index];
-        } else {
-            this.bitmapSubtitleCur = {name: 'Hide Sub'};
-        }
-        this.template.bitmapSubtitleButton.innerHTML = this.bitmapSubtitleIndex + ':' + this.bitmapSubtitleCur.name;
+        // console.log(this.bitmapSubtitles);
+        this.bitmapSubtitleCur = this.bitmapSubtitles.find((sub) => sub.index === index);
+        this.template.bitmapSubtitleButton.innerHTML = (this.bitmapSubtitleIndex !== -1 ? this.bitmapSubtitleIndex + ':' : '') + this.bitmapSubtitleCur.name;
 
         const paused = this.video.paused;
         this.video.pause();
@@ -613,7 +610,7 @@ class DPlayer {
         // console.log('test2 this.prevVideoSub: %o, this.video: %o', this.prevVideoSub, this.video)
 
         this.seek(this.prevVideoSub.currentTime);
-        this.notice(`${this.tran('Switching to')} ${this.quality.name} ${this.tran('quality')} ${this.bitmapSubtitleCur.name}`, -1);
+        this.notice(`${this.tran('Switching to')} ${this.bitmapSubtitleCur.index}:${this.bitmapSubtitleCur.name} ......`, -1);
         this.events.trigger('bitmap_subtitle_start', this.bitmapSubtitleCur);
         // console.log('test3 this.prevVideoSub: %o, this.video: %o', this.prevVideoSub, this.video)
 
@@ -631,7 +628,7 @@ class DPlayer {
                     this.video.play();
                 }
                 this.prevVideoSub = null;
-                this.notice(`${this.tran('Switched to')} ${this.quality.name} ${this.tran('quality')} ${this.bitmapSubtitleCur.name}`);
+                this.notice(`${this.tran('Switched to')} ${this.bitmapSubtitleCur.index}:${this.bitmapSubtitleCur.name}`);
                 this.switchingSubtitle = false;
 
                 this.events.trigger('bitmap_subtitle_end');

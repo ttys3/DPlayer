@@ -222,13 +222,17 @@ class Controller {
     }
 
     initBitmapSubtitleButton () {
-        // this.player.template.bitmapSubtitleList.innerHTML = '';
         if (this.player.bitmapSubtitles.length > 0) {
+            // remove the default HTML 'No Sub' item
+            this.player.template.bitmapSubtitleList.innerHTML = '';
+            // fix the button text
+            this.player.template.bitmapSubtitleButton.innerHTML = 'Hide Sub';
             for (let i = 0; i < this.player.bitmapSubtitles.length; i++) {
+                const sub = this.player.bitmapSubtitles[i];
                 // see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentHTML
                 this.player.template.bitmapSubtitleList.insertAdjacentHTML('beforeend',
-                    '<div class="dplayer-bitmap-subtitle-item" data-index="' + i + '">'
-                    + i + ':' + this.player.bitmapSubtitles[i].name + '</div>');
+                    '<div class="dplayer-bitmap-subtitle-item" data-index="' + sub.index + '">'
+                    + (sub.index !== -1 ? sub.index + ':' : '') + sub.name + '</div>');
             }
 
             /*
