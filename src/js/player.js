@@ -39,6 +39,9 @@ class DPlayer {
             this.qualityIndex = this.options.video.defaultQuality;
             this.quality = this.options.video.quality[this.options.video.defaultQuality];
         }
+
+        this.bitmapSubtitleIndex = this.options.video.defaultBitmapSubtitle;
+
         this.tran = new i18n(this.options.lang).tran;
         this.events = new Events();
         this.user = new User(this);
@@ -528,7 +531,7 @@ class DPlayer {
             pic: null,
             screenshot: this.options.screenshot,
             preload: 'auto',
-            url: this.quality.url,
+            url: this.quality.url + '&si=' + this.bitmapSubtitleIndex,
             subtitle: this.options.subtitle
         });
         const videoEle = new DOMParser().parseFromString(videoHTML, 'text/html').body.firstChild;
@@ -556,6 +559,82 @@ class DPlayer {
                 this.switchingQuality = false;
 
                 this.events.trigger('quality_end');
+            }
+        });
+    }
+
+    /**
+     * initBitmapSubtitles dynamically
+     * @param subtitles
+     */
+    initBitmapSubtitles (subtitles) {
+        this.bitmapSubtitles = subtitles;
+        this.controller.initBitmapSubtitleButton();
+    }
+
+    switchBitmapSubtitle (index) {
+        index = typeof index === 'string' ? parseInt(index) : index;
+
+        // console.log('index: %d, this.bitmapSubtitleIndex: %d, this.switchingSubtitle: %o', index, this.bitmapSubtitleIndex, this.switchingSubtitle);
+
+        if (this.bitmapSubtitleIndex === index || this.switchingSubtitle) {
+            // console.log('switchBitmapSubtitle: just return');
+            return;
+        } else {
+            this.bitmapSubtitleIndex = index;
+        }
+        // console.log('index: %d, this.bitmapSubtitleIndex: %d', index, this.bitmapSubtitleIndex);
+
+        this.switchingSubtitle = true;
+        if (this.bitmapSubtitleIndex >= 0) {
+            this.bitmapSubtitleCur = this.bitmapSubtitles[index];
+        } else {
+            this.bitmapSubtitleCur = {name: 'Hide Sub'};
+        }
+        this.template.bitmapSubtitleButton.innerHTML = this.bitmapSubtitleIndex + ':' + this.bitmapSubtitleCur.name;
+
+        const paused = this.video.paused;
+        this.video.pause();
+        const videoHTML = tplVideo({
+            current: false,
+            pic: null,
+            screenshot: this.options.screenshot,
+            preload: 'auto',
+            url: this.quality.url + '&si=' + this.bitmapSubtitleIndex,
+            subtitle: this.options.subtitle
+        });
+        const videoEle = new DOMParser().parseFromString(videoHTML, 'text/html').body.firstChild;
+        this.template.videoWrap.insertBefore(videoEle, this.template.videoWrap.getElementsByTagName('div')[0]);
+        this.prevVideoSub = this.video;
+        // console.log('test1 this.prevVideoSub: %o, this.video: %o', this.prevVideoSub, this.video)
+        this.video = videoEle;
+        this.initVideo(this.video, this.quality.type || this.options.video.type);
+        // console.log('new video inited');
+        // console.log('test2 this.prevVideoSub: %o, this.video: %o', this.prevVideoSub, this.video)
+
+        this.seek(this.prevVideoSub.currentTime);
+        this.notice(`${this.tran('Switching to')} ${this.quality.name} ${this.tran('quality')} ${this.bitmapSubtitleCur.name}`, -1);
+        this.events.trigger('bitmap_subtitle_start', this.bitmapSubtitleCur);
+        // console.log('test3 this.prevVideoSub: %o, this.video: %o', this.prevVideoSub, this.video)
+
+        this.on('canplay', () => {
+            // console.log('on canplay: this.prevVideoSub: %o', this.prevVideoSub)
+            if (this.prevVideoSub) {
+                if (this.video.currentTime !== this.prevVideoSub.currentTime) {
+                    this.seek(this.prevVideoSub.currentTime);
+                    // console.log('on canplay: currentTime no equal ,return')
+                    return;
+                }
+                this.template.videoWrap.removeChild(this.prevVideoSub);
+                this.video.classList.add('dplayer-video-current');
+                if (!paused) {
+                    this.video.play();
+                }
+                this.prevVideoSub = null;
+                this.notice(`${this.tran('Switched to')} ${this.quality.name} ${this.tran('quality')} ${this.bitmapSubtitleCur.name}`);
+                this.switchingSubtitle = false;
+
+                this.events.trigger('bitmap_subtitle_end');
             }
         });
     }

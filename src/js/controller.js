@@ -221,6 +221,28 @@ class Controller {
         }
     }
 
+    initBitmapSubtitleButton () {
+        // this.player.template.bitmapSubtitleList.innerHTML = '';
+        if (this.player.bitmapSubtitles.length > 0) {
+            for (let i = 0; i < this.player.bitmapSubtitles.length; i++) {
+                // see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentHTML
+                this.player.template.bitmapSubtitleList.insertAdjacentHTML('beforeend',
+                    '<div class="dplayer-bitmap-subtitle-item" data-index="' + i + '">'
+                    + i + ':' + this.player.bitmapSubtitles[i].name + '</div>');
+            }
+
+            /*
+             * We need to get the element from the page again if we want to manipulate it
+            */
+            this.player.template.bitmapSubtitleList = this.player.template.container.querySelector('.dplayer-bitmap-subtitle-list');
+            this.player.template.bitmapSubtitleList.addEventListener('click', (e) => {
+                if (e.target.classList.contains('dplayer-bitmap-subtitle-item')) {
+                    this.player.switchBitmapSubtitle(e.target.dataset.index);
+                }
+            });
+        }
+    }
+
     initScreenshotButton () {
         if (this.player.options.screenshot) {
             this.player.template.camareButton.addEventListener('click', () => {

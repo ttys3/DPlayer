@@ -110,6 +110,16 @@
             </div>
         </div>
         {{ /if }}
+
+        <div class="dplayer-bitmap-subtitle">
+            <button class="dplayer-icon dplayer-bitmap-subtitle-icon">Hide Sub</button>
+            <div class="dplayer-bitmap-subtitle-mask">
+                <div class="dplayer-bitmap-subtitle-list">
+                    <div class="dplayer-bitmap-subtitle-item" data-index="-1">Hide Sub</div>
+                </div>
+            </div>
+        </div>
+
         {{ if options.screenshot }}
         <div class="dplayer-icon dplayer-camera-icon" data-balloon="{{ tran('Screenshot') }}" data-balloon-pos="up">
             <span class="dplayer-icon-content">{{@ icons.camera }}</span>

@@ -74,11 +74,13 @@ class Template {
         this.menu = this.container.querySelector('.dplayer-menu');
         this.menuItem = this.container.querySelectorAll('.dplayer-menu-item');
         this.qualityList = this.container.querySelector('.dplayer-quality-list');
+        this.bitmapSubtitleList = this.container.querySelector('.dplayer-bitmap-subtitle-list');
         this.camareButton = this.container.querySelector('.dplayer-camera-icon');
         this.subtitleButton = this.container.querySelector('.dplayer-subtitle-icon');
         this.subtitleButtonInner = this.container.querySelector('.dplayer-subtitle-icon .dplayer-icon-content');
         this.subtitle = this.container.querySelector('.dplayer-subtitle');
         this.qualityButton = this.container.querySelector('.dplayer-quality-icon');
+        this.bitmapSubtitleButton = this.container.querySelector('.dplayer-bitmap-subtitle-icon');
         this.barPreview = this.container.querySelector('.dplayer-bar-preview');
         this.barWrap = this.container.querySelector('.dplayer-bar-wrap');
         this.notice = this.container.querySelector('.dplayer-notice');
