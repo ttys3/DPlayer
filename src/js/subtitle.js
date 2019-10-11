@@ -24,9 +24,9 @@ class Subtitle {
         this.container.style.color = this.options.color;
 
         // init default track
-        if (this.video.textTracks && this.video.textTracks[0]) {
-            this.switch(0);
-        }
+        // if (this.video.textTracks && this.video.textTracks[0]) {
+        //     this.switch(0);
+        // }
     }
 
     onCuechangeHandle (e) {
