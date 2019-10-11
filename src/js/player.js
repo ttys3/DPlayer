@@ -578,6 +578,10 @@ class DPlayer {
     switchBitmapSubtitle (index) {
         index = typeof index === 'string' ? parseInt(index) : index;
 
+        // hide the text subtitle
+        if (index === -1) {
+            this.subtitle.hide();
+        }
         // console.log('index: %d, this.bitmapSubtitleIndex: %d, this.switchingSubtitle: %o', index, this.bitmapSubtitleIndex, this.switchingSubtitle);
 
         if (this.bitmapSubtitleIndex === index || this.switchingSubtitle) {
