@@ -41,6 +41,9 @@ class DPlayer {
         }
 
         this.bitmapSubtitleIndex = this.options.video.defaultBitmapSubtitle;
+        if (this.options.video.bitmapSubtitles) {
+            this.bitmapSubtitles = this.options.video.bitmapSubtitles;
+        }
 
         this.tran = new i18n(this.options.lang).tran;
         this.events = new Events();

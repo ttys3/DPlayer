@@ -27,6 +27,7 @@ class Controller {
         this.initPlayedBar();
         this.initFullButton();
         this.initQualityButton();
+        this.initBitmapSubtitleButton();
         this.initScreenshotButton();
         this.initSubtitleButton();
         this.initHighlights();
@@ -222,7 +223,7 @@ class Controller {
     }
 
     initBitmapSubtitleButton () {
-        if (this.player.bitmapSubtitles.length > 0) {
+        if (this.player.bitmapSubtitles && this.player.bitmapSubtitles.length > 0) {
             // remove the default HTML 'No Sub' item
             this.player.template.bitmapSubtitleList.innerHTML = '';
             // fix the button text
