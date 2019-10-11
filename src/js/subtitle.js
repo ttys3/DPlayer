@@ -78,6 +78,16 @@ class Subtitle {
             this.hide();
         }
     }
+
+    destroy () {
+        for (const track of this.video.textTracks) {
+            if (track.mode === 'showing') {
+                track.removeEventListener('cuechange', this.onCuechangeHandle);
+                track.mode = 'disabled';
+            }
+        }
+        this.video.querySelectorAll('track').forEach((tr) => tr.remove());
+    }
 }
 
 export default Subtitle;
