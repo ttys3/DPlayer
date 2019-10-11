@@ -170,11 +170,11 @@ function initPlayers () {
         video: {
             quality: [{
                 name: 'HD',
-                url: 'http://127.0.0.1:8082/api/playlist/subtitle/Hannibal.S01E01.2013.1080p.WEB-DL.x265.10bit.AC3%EF%BF%A1cXcY%40FRDS.mkv?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibGlzdCIsInNob3dIaWRkZW4iOnRydWUsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlfSwiZXhwIjoxNTcwNzg0NzIzLCJpYXQiOjE1NzA3NzM5MjMsImlzcyI6IkZpbGUgQnJvd3NlciAgdjIuOC42LWRldi81YzEzZTU4YlxuQnVpbHQgRm9yICAgOiBsaW51eC9hbWQ2NFxuR28gVmVyc2lvbiAgOiBnbzEuMTMuMVxuUmVsZWFzZSBEYXRlOiAyMDE5MTAxMS0xMDU4In0.ZSC61wQIvuOdrVtN2UWxXq5c8cKcS_mb8sFqHaekRu4&res=720&si=-1',
+                url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8',
                 type: 'hls'
             }, {
                 name: 'SD',
-                url: 'http://127.0.0.1:8082/api/playlist/subtitle/Hannibal.S01E01.2013.1080p.WEB-DL.x265.10bit.AC3%EF%BF%A1cXcY%40FRDS.mkv?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibGlzdCIsInNob3dIaWRkZW4iOnRydWUsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlfSwiZXhwIjoxNTcwNzg0NzIzLCJpYXQiOjE1NzA3NzM5MjMsImlzcyI6IkZpbGUgQnJvd3NlciAgdjIuOC42LWRldi81YzEzZTU4YlxuQnVpbHQgRm9yICAgOiBsaW51eC9hbWQ2NFxuR28gVmVyc2lvbiAgOiBnbzEuMTMuMVxuUmVsZWFzZSBEYXRlOiAyMDE5MTAxMS0xMDU4In0.ZSC61wQIvuOdrVtN2UWxXq5c8cKcS_mb8sFqHaekRu4&res=720&si=-1',
+                url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8',
                 type: 'hls'
             }],
             bitmapSubtitles: subtitles,
