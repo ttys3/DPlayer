@@ -596,7 +596,7 @@ class DPlayer {
 
         this.switchingSubtitle = true;
         // console.log(this.bitmapSubtitles);
-        this.bitmapSubtitleCur = this.bitmapSubtitles.find((sub) => sub.type == 'bitmap' && sub.index === index);
+        this.bitmapSubtitleCur = this.bitmapSubtitles.find((sub) => sub.type === 'bitmap' && sub.index === index);
         this.template.bitmapSubtitleButton.innerHTML = (this.bitmapSubtitleIndex !== -1 ? this.bitmapSubtitleIndex + ':' : '') + this.bitmapSubtitleCur.name;
 
         const paused = this.video.paused;
