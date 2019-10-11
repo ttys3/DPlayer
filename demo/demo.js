@@ -141,24 +141,29 @@ function initPlayers () {
         });
     }
 
-    // dp3
-    // window.dp3 = new DPlayer({
-    //     container: document.getElementById('dplayer3'),
-    //     preload: 'none',
-    //     video: {
-    //         quality: [{
-    //             name: 'HD',
-    //             url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8',
-    //             type: 'hls'
-    //         }, {
-    //             name: 'SD',
-    //             url: 'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
-    //             type: 'normal'
-    //         }],
-    //         defaultQuality: 0,
-    //         pic: 'https://i.loli.net/2019/06/06/5cf8c5d9c57b510947.png'
-    //     }
-    // });
+    window.dp3 = new DPlayer({
+        container: document.getElementById('dplayer3'),
+        preload: 'none',
+        video: {
+            quality: [{
+                name: 'HD',
+                url: 'http://127.0.0.1:8082/api/playlist/subtitle/Hannibal.S01E01.2013.1080p.WEB-DL.x265.10bit.AC3%EF%BF%A1cXcY%40FRDS.mkv?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibGlzdCIsInNob3dIaWRkZW4iOnRydWUsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlfSwiZXhwIjoxNTcwNzczNTIxLCJpYXQiOjE1NzA3NjI3MjEsImlzcyI6IkZpbGUgQnJvd3NlciAgdjIuOC42LWRldi81YzEzZTU4YlxuQnVpbHQgRm9yICAgOiBsaW51eC9hbWQ2NFxuR28gVmVyc2lvbiAgOiBnbzEuMTMuMVxuUmVsZWFzZSBEYXRlOiAyMDE5MTAxMS0xMDU4In0.UIV-ZSp5GxjZfpP8Y9Un41JAHFWpy_drSzcUVMsGtds&res=720&si=-1',
+                type: 'hls'
+            }, {
+                name: 'SD',
+                url: 'http://127.0.0.1:8082/api/playlist/subtitle/Hannibal.S01E01.2013.1080p.WEB-DL.x265.10bit.AC3%EF%BF%A1cXcY%40FRDS.mkv?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibGlzdCIsInNob3dIaWRkZW4iOnRydWUsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlfSwiZXhwIjoxNTcwNzczNTIxLCJpYXQiOjE1NzA3NjI3MjEsImlzcyI6IkZpbGUgQnJvd3NlciAgdjIuOC42LWRldi81YzEzZTU4YlxuQnVpbHQgRm9yICAgOiBsaW51eC9hbWQ2NFxuR28gVmVyc2lvbiAgOiBnbzEuMTMuMVxuUmVsZWFzZSBEYXRlOiAyMDE5MTAxMS0xMDU4In0.UIV-ZSp5GxjZfpP8Y9Un41JAHFWpy_drSzcUVMsGtds&res=480&si=-1',
+                type: 'normal'
+            }],
+            bitmapSubtitles: [
+                {name: 'hide', index: -1},
+                {name: 'chi:中上英下-YYeTs-ASS￡cXcY', index: 0},
+                {name: 'chi:简体中文-YYeTs-SRT￡cXcY', index: 1},
+            ],
+            defaultQuality: 0,
+            defaultBitmapSubtitle: -1,
+            pic: 'https://i.loli.net/2019/06/06/5cf8c5d9c57b510947.png'
+        }
+    });
 
     // // dp4
     // window.dp4 = new DPlayer({
