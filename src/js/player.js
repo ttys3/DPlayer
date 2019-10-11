@@ -581,6 +581,8 @@ class DPlayer {
         // hide the text subtitle
         if (index === -1) {
             this.subtitle.hide();
+            this.template.bitmapSubtitleButton.innerHTML = 'Hide Sub';
+            this.notice('subtitle is hidden now');
         }
         // console.log('index: %d, this.bitmapSubtitleIndex: %d, this.switchingSubtitle: %o', index, this.bitmapSubtitleIndex, this.switchingSubtitle);
 
