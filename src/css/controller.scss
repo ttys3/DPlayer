@@ -340,7 +340,10 @@
             &.dplayer-bitmap-subtitle-icon {
                 color: #fff;
                 width: auto;
-                line-height: 22px;
+                max-width: 80px;;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 25px;
                 font-size: 14px;
             }
             &.dplayer-comment-icon {
@@ -602,26 +605,31 @@
                 position: absolute;
                 bottom: 38px;
                 left: -18px;
-                width: 80px;
+                width: 120px;
                 padding-bottom: 12px;
             }
             .dplayer-bitmap-subtitle-list {
                 display: none;
                 font-size: 12px;
-                width: 80px;
+                width: 120px;
                 border-radius: 2px;
                 background: rgba(28, 28, 28, 0.9);
                 padding: 5px 0;
                 transition: all .3s ease-in-out;
                 overflow: hidden;
+                text-overflow: ellipsis;
                 color: #fff;
                 text-align: center;
             }
             .dplayer-bitmap-subtitle-item {
-                height: 25px;
+                height: auto;
                 box-sizing: border-box;
                 cursor: pointer;
                 line-height: 25px;
+                word-break: break-all;
+                word-wrap: break-word;
+                display: inline-block;
+                padding: 2px 10px;
                 &:hover {
                     background-color: rgba(255, 255, 255, .1);
                 }
