@@ -232,8 +232,8 @@ class Controller {
                 const sub = this.player.bitmapSubtitles[i];
                 // see https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentHTML
                 this.player.template.bitmapSubtitleList.insertAdjacentHTML('beforeend',
-                    '<div class="dplayer-bitmap-subtitle-item" data-index="' + sub.index + '">'
-                    + (sub.index !== -1 ? sub.index + ':' : '') + sub.name + '</div>');
+                    '<div class="dplayer-bitmap-subtitle-item" data-index="' + sub.index + '" data-type="' + sub.type + '">'
+                    + (sub.type === 'text' ? 'T:' : '') + (sub.index !== -1 ? sub.index + ':' : '') + sub.name + '</div>');
             }
 
             /*
@@ -242,9 +242,23 @@ class Controller {
             this.player.template.bitmapSubtitleList = this.player.template.container.querySelector('.dplayer-bitmap-subtitle-list');
             this.player.template.bitmapSubtitleList.addEventListener('click', (e) => {
                 if (e.target.classList.contains('dplayer-bitmap-subtitle-item')) {
-                    this.player.switchBitmapSubtitle(e.target.dataset.index);
+                    if (e.target.dataset.type === 'bitmap') {
+                        this.player.switchBitmapSubtitle(e.target.dataset.index);
+                    } else {
+                        this.player.switchTextSubtitle(e.target.dataset.index);
+                    }
                 }
             });
+        }
+    }
+
+    initTextTrack () {
+        if (this.player.textSubtitles && this.player.textSubtitles.length > 0) {
+            for (let i = 0; i < this.player.textSubtitles.length; i++) {
+                const sub = this.player.textSubtitles[i];
+                this.player.video.insertAdjacentHTML('beforeend',
+                    `<track mode="disabled" label="${sub.name}" data-type="${sub.type}" data-index="${sub.index}" kind="metadata" srclang="${sub.srclang}" src="${sub.url}">`);
+            }
         }
     }
 

@@ -639,6 +639,32 @@ class DPlayer {
         });
     }
 
+    /**
+     * initTextSubtitles dynamically
+     * @param subtitles
+     */
+    initTextSubtitles (subtitles) {
+        this.textSubtitles = subtitles;
+        this.controller.initTextTrack();
+    }
+
+    switchTextSubtitle (index) {
+        index = typeof index === 'string' ? parseInt(index) : index;
+
+        if (this.switchingSubtitle) {
+            return;
+        } else if (this.video.textTracks && this.video.textTracks.length > index) {
+            const txtSubtitleCur = this.video.textTracks[index];
+            // console.log('this.video.textTracks: %o', this.video.textTracks);
+            if (txtSubtitleCur) {
+                this.subtitle.switch(index);
+                this.template.bitmapSubtitleButton.innerHTML = txtSubtitleCur.label;
+                this.notice(`vtt subtitle ${this.tran('Switched to')} ${txtSubtitleCur.label}`);
+            }
+        }
+    }
+
+
     notice (text, time = 2000, opacity = 0.8) {
         this.template.notice.innerHTML = text;
         this.template.notice.style.opacity = opacity;

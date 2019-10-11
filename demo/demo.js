@@ -48,10 +48,6 @@ function initPlayers () {
         },
         subtitle: {
             url: 'subtitle test'
-        },
-        danmaku: {
-            id: '9E2E3368B56CDBB4',
-            api: 'https://api.prprpr.me/dplayer/'
         }
     });
     // dp1
@@ -66,11 +62,6 @@ function initPlayers () {
         },
         subtitle: {
             url: 'https://moeplayer.b0.upaiyun.com/dplayer/hikarunara.vtt'
-        },
-        danmaku: {
-            id: '9E2E3368B56CDBB4',
-            api: 'https://api.prprpr.me/dplayer/',
-            addition: ['https://cn-south-17-dplayer-49648867.oss.dogecdn.com/1678963.json']
         }
     });
 
@@ -98,15 +89,6 @@ function initPlayers () {
             fontSize: '25px',
             bottom: '10%',
             color: '#b7daff'
-        },
-        danmaku: {
-            id: '9E2E3368B56CDBB4',
-            api: 'https://api.prprpr.me/dplayer/',
-            token: 'tokendemo',
-            maximum: 3000,
-            user: 'DIYgod',
-            bottom: '15%',
-            unlimited: true
         },
         contextmenu: [
             {
@@ -141,29 +123,70 @@ function initPlayers () {
         });
     }
 
+    const subtitles = [
+            {
+                name: 'chi:中上英下',
+                srclang: 'chi',
+                index: 0,
+                type: 'text',
+                url: '/vtt/eng-chs.vtt',
+                default: true,
+            },
+            {
+                name: 'chs',
+                srclang: 'chs',
+                index: 1,
+                type: 'text',
+                url: '/vtt/chs.vtt',
+                default: false,
+            },
+            {
+                name: 'cht',
+                srclang: 'cht',
+                index: 2,
+                type: 'text',
+                url: '/vtt/cht.vtt',
+                default: false,
+            },
+            {
+                name: 'eng',
+                srclang: 'eng',
+                index: 3,
+                type: 'text',
+                url: '/vtt/eng.vtt',
+                default: false,
+            },
+        ];
+
     window.dp3 = new DPlayer({
         container: document.getElementById('dplayer3'),
         preload: 'none',
+        screenshot: true,
+        subtitle: {
+            type: 'webvtt',
+            color: 'rgb(141, 234, 124)',
+            subtitles: [],
+        },
         video: {
             quality: [{
                 name: 'HD',
-                url: 'http://127.0.0.1:8082/api/playlist/subtitle/Hannibal.S01E01.2013.1080p.WEB-DL.x265.10bit.AC3%EF%BF%A1cXcY%40FRDS.mkv?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibGlzdCIsInNob3dIaWRkZW4iOnRydWUsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlfSwiZXhwIjoxNTcwNzczNTIxLCJpYXQiOjE1NzA3NjI3MjEsImlzcyI6IkZpbGUgQnJvd3NlciAgdjIuOC42LWRldi81YzEzZTU4YlxuQnVpbHQgRm9yICAgOiBsaW51eC9hbWQ2NFxuR28gVmVyc2lvbiAgOiBnbzEuMTMuMVxuUmVsZWFzZSBEYXRlOiAyMDE5MTAxMS0xMDU4In0.UIV-ZSp5GxjZfpP8Y9Un41JAHFWpy_drSzcUVMsGtds&res=720&si=-1',
+                url: 'http://127.0.0.1:8082/api/playlist/subtitle/Hannibal.S01E01.2013.1080p.WEB-DL.x265.10bit.AC3%EF%BF%A1cXcY%40FRDS.mkv?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibGlzdCIsInNob3dIaWRkZW4iOnRydWUsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlfSwiZXhwIjoxNTcwNzg0NzIzLCJpYXQiOjE1NzA3NzM5MjMsImlzcyI6IkZpbGUgQnJvd3NlciAgdjIuOC42LWRldi81YzEzZTU4YlxuQnVpbHQgRm9yICAgOiBsaW51eC9hbWQ2NFxuR28gVmVyc2lvbiAgOiBnbzEuMTMuMVxuUmVsZWFzZSBEYXRlOiAyMDE5MTAxMS0xMDU4In0.ZSC61wQIvuOdrVtN2UWxXq5c8cKcS_mb8sFqHaekRu4&res=720&si=-1',
                 type: 'hls'
             }, {
                 name: 'SD',
-                url: 'http://127.0.0.1:8082/api/playlist/subtitle/Hannibal.S01E01.2013.1080p.WEB-DL.x265.10bit.AC3%EF%BF%A1cXcY%40FRDS.mkv?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibGlzdCIsInNob3dIaWRkZW4iOnRydWUsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlfSwiZXhwIjoxNTcwNzczNTIxLCJpYXQiOjE1NzA3NjI3MjEsImlzcyI6IkZpbGUgQnJvd3NlciAgdjIuOC42LWRldi81YzEzZTU4YlxuQnVpbHQgRm9yICAgOiBsaW51eC9hbWQ2NFxuR28gVmVyc2lvbiAgOiBnbzEuMTMuMVxuUmVsZWFzZSBEYXRlOiAyMDE5MTAxMS0xMDU4In0.UIV-ZSp5GxjZfpP8Y9Un41JAHFWpy_drSzcUVMsGtds&res=480&si=-1',
-                type: 'normal'
+                url: 'http://127.0.0.1:8082/api/playlist/subtitle/Hannibal.S01E01.2013.1080p.WEB-DL.x265.10bit.AC3%EF%BF%A1cXcY%40FRDS.mkv?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibGlzdCIsInNob3dIaWRkZW4iOnRydWUsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlfSwiZXhwIjoxNTcwNzg0NzIzLCJpYXQiOjE1NzA3NzM5MjMsImlzcyI6IkZpbGUgQnJvd3NlciAgdjIuOC42LWRldi81YzEzZTU4YlxuQnVpbHQgRm9yICAgOiBsaW51eC9hbWQ2NFxuR28gVmVyc2lvbiAgOiBnbzEuMTMuMVxuUmVsZWFzZSBEYXRlOiAyMDE5MTAxMS0xMDU4In0.ZSC61wQIvuOdrVtN2UWxXq5c8cKcS_mb8sFqHaekRu4&res=720&si=-1',
+                type: 'hls'
             }],
-            bitmapSubtitles: [
-                {name: 'hide', index: -1},
-                {name: 'chi:中上英下-YYeTs-ASS￡cXcY', index: 0},
-                {name: 'chi:简体中文-YYeTs-SRT￡cXcY', index: 1},
-            ],
+            bitmapSubtitles: subtitles,
             defaultQuality: 0,
             defaultBitmapSubtitle: -1,
             pic: 'https://i.loli.net/2019/06/06/5cf8c5d9c57b510947.png'
         }
     });
+
+    // add vtt subtitles dynamic
+    window.dp3.initTextSubtitles(subtitles);
+    window.dp3.subtitle.switch(0);
 
     // // dp4
     // window.dp4 = new DPlayer({
