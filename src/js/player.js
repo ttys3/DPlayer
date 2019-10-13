@@ -594,6 +594,11 @@ class DPlayer {
         }
         // console.log('index: %d, this.bitmapSubtitleIndex: %d', index, this.bitmapSubtitleIndex);
 
+        // normal mode can not see bitmap subtitle
+        if (this.type === 'normal') {
+            this.notice('you need switch to Hls or Dash to see the subtitle');
+        }
+
         this.switchingSubtitle = true;
         // console.log(this.bitmapSubtitles);
         this.bitmapSubtitleCur = this.bitmapSubtitles.find((sub) => sub.type === 'bitmap' && sub.index === index);
