@@ -1,11 +1,11 @@
 {
   "name": "dplayer",
-  "version": "1.25.10",
+  "version": "1.25.11",
   "description": "Wow, such a lovely HTML5 danmaku video player",
   "main": "dist/DPlayer.min.js",
   "style": "dist/DPlayer.min.css",
   "scripts": {
-    "start": "npm run dev",
+    "start": "yarn run dev",
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --colors",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack/dev.config.js --watch --colors",
     "test": "eslint src webpack",
