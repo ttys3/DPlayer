@@ -168,15 +168,28 @@ function initPlayers () {
             subtitles: [],
         },
         video: {
-            quality: [{
-                name: 'HD',
-                url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8',
-                type: 'hls'
-            }, {
-                name: 'SD',
-                url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8',
-                type: 'hls'
-            }],
+            quality: [
+                {name: '1080p - 60 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 50 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 40 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 30 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 25 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 20 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 15 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 10 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 8 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 6 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 5 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '1080p - 4 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '720p - 4 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '720p - 3 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '720p - 2 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '720p - 1.5 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '720p - 1 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '480p - 1 Mbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '480p - 720 kbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+                {name: '480p - 420 kbps', url: 'https://moeplayer.b0.upaiyun.com/dplayer/hls/hikarunara.m3u8', type: 'hls'},
+            ],
             bitmapSubtitles: subtitles,
             defaultQuality: 0,
             defaultBitmapSubtitle: -1,
