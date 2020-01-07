@@ -561,27 +561,30 @@
                 display: none;
                 position: absolute;
                 bottom: 38px;
-                left: -18px;
-                width: 80px;
+                left: 2px;
+                width: 120px;
                 padding-bottom: 12px;
             }
             .dplayer-quality-list {
                 display: none;
                 font-size: 12px;
-                width: 80px;
+                width: 120px;
                 border-radius: 2px;
                 background: rgba(28, 28, 28, 0.9);
                 padding: 5px 0;
                 transition: all .3s ease-in-out;
-                overflow: hidden;
+                overflow-y: auto;
+                overflow-x: hidden;
                 color: #fff;
-                text-align: center;
+                text-align: left;
+                max-height: 540px;
             }
             .dplayer-quality-item {
                 height: 25px;
                 box-sizing: border-box;
                 cursor: pointer;
                 line-height: 25px;
+                padding-left: 14px;
                 &:hover {
                     background-color: rgba(255, 255, 255, .1);
                 }
@@ -611,15 +614,17 @@
             .dplayer-bitmap-subtitle-list {
                 display: none;
                 font-size: 12px;
-                width: 120px;
+                width: 240px;
                 border-radius: 2px;
                 background: rgba(28, 28, 28, 0.9);
                 padding: 5px 0;
                 transition: all .3s ease-in-out;
-                overflow: hidden;
+                overflow-y: auto;
+                overflow-x: hidden;
                 text-overflow: ellipsis;
                 color: #fff;
-                text-align: center;
+                text-align: left;
+                max-height: 460px;
             }
             .dplayer-bitmap-subtitle-item {
                 height: auto;
